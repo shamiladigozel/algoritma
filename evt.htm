@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="textbox" cols="30" rows="10" onkeyup="Scan(this)"></textarea>
+    <span id="result"></span>
+    <script>
+             
+        function Scan(textarea){
+             let text=textarea.value;
+             let res=document.getElementById("result");
+             let saygac=0;
+             let sum="";
+            for (let i=0;i<text.length;i++){
+                  sum+=text[i];         
+            }
+            for (let j=0;j<sum.length-1;j++){
+                if((sum[j]==null||sum[j]==" ")&&(sum[j+1]=="A"||sum[j+1]=="a")){
+                    saygac++;
+                }
+            }
+            if(sum[0]=="a"||sum[0]=="A"){
+                saygac++;
+            }
+            res.innerHTML=saygac;
+        }
+    </script>
+</body>
+</html>
