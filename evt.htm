@@ -7,27 +7,122 @@
 </head>
 <body>
     <textarea id="textbox" cols="30" rows="10" onkeyup="Scan(this)"></textarea>
-    <span id="result"></span>
+    <span id="res" style="display: block;"></span>
+   
     <script>
-             
-        function Scan(textarea){
+
+         
+         let sum="",end="";
+         let ind=0;
+         let x="";
+
+      function Scan(textarea){
              let text=textarea.value;
-             let res=document.getElementById("result");
-             let saygac=0;
-             let sum="";
-            for (let i=0;i<text.length;i++){
-                  sum+=text[i];         
-            }
-            for (let j=0;j<sum.length-1;j++){
-                if((sum[j]==null||sum[j]==" ")&&(sum[j+1]=="A"||sum[j+1]=="a")){
-                    saygac++;
+             let span=document.getElementById("res");
+            
+             
+            for (let i=ind;i<text.length;i++)
+            {
+                if(text[i]!=" "&&text[i]!="."&&text[i]!="?"&&text[i]!="!")
+                {
+                    
+                sum+=text[i];
+                ind++;
                 }
-            }
-            if(sum[0]=="a"||sum[0]=="A"){
-                saygac++;
-            }
-            res.innerHTML=saygac;
+                else{
+                 ind++;
+                 end=sum;
+                 sum="";
+                 break;
+
+                }
+            } 
+           // opt+=`<option>${end}</option>`;
+              if(end[0]=="A"||end[0]=="a"){
+                x+=end;
+                x+="</br>";
+                span.innerHTML=x;
+                end="";
+                
+              }
+              
+                
+            
+            
+          
+          
+         
+          
+            
+           /* console.clear();
+           
+            for (let n of arr){
+             console.log(n);
+                //of yerine in yazilsa index deyerini gosterer
+           }*/
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        var buton={
+            height:5,
+            width:1,
+            setButon:function(width,height,but){
+               this.height=height;
+               this.width=width;
+               but.style.width=this.width+"px";
+               but.style.height=this.height+"px";
+            },
+            
+        }
+        function MyFunc(width=150,height=120){
+            this.width=width;
+            this.height=height;
+            this.setOptions=function(buton){
+               buton.style.width=this.width+"px";
+               buton.style.height=this.height+"px";
+
+            }
+
+        }
+           
+       function Func(){
+           var but=document.getElementById("but");
+           buton.setButon(120,55,but);
+          
+           
+       }
+       function funcTwo(){
+           var but=document.getElementById("but2");
+           var buton=new MyFunc(width=30,height=10);
+           buton.setOptions(but);
+          
+           
+       }
+*/
+        
+
+
+
+       
     </script>
 </body>
 </html>
